@@ -4,10 +4,9 @@ let AuthAjax = (function(){
         this.formId = info.form;
         this.inputArray = info.input;
 
+        // eval('this.' + this.formId + '(this);')
+        this.ajaxForm(this);
 
-        this.userRegister(this)
-
-        // console.log(this.getById(info.form))
     }
 
     AuthAjax.prototype.input = [
@@ -18,11 +17,7 @@ let AuthAjax = (function(){
         ['_token', 'required']
     ];
 
-    AuthAjax.prototype.checkAfterDone = function() {
-        return this.succUrl === undefined ? this.done : this.succUrl;
-    };
-
-    AuthAjax.prototype.userRegister = function (thisClass) {
+    AuthAjax.prototype.ajaxForm = function (thisClass) {
         this.addEvent(this.formId, 'submit', function () {
             let info = thisClass.GetInfo();
             if (info !== false) {
@@ -47,6 +42,7 @@ let AuthAjax = (function(){
 
     AuthAjax.prototype.GetInfo = function () {
         var object = {};
+        console.log(this.checkInput())
         for (var i = 0; i < this.checkInput().length; i++) {
             if (typeof this.checkInput()[i] == "object") {
                 if (this.checkInput()[i][1] == 'required' && this.getValByName(this.checkInput()[i][0]) == "") {

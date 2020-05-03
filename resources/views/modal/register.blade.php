@@ -14,12 +14,11 @@
                     <div class="card">
                         <div class="card-body">
 
-
                             <div class="form-group row">
-                                <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                                <label for="register-name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="name" type="text"
+                                    <input id="register-name" type="text"
                                         class="form-control @error('name') is-invalid @enderror" name="name"
                                         value="{{ old('name') }}" required autocomplete="name" autofocus>
 
@@ -32,11 +31,11 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="email"
+                                <label for="register-email"
                                     class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="email" type="email"
+                                    <input id="register-email" type="email"
                                         class="form-control @error('email') is-invalid @enderror" name="email"
                                         value="{{ old('email') }}" required autocomplete="email">
 
@@ -49,11 +48,11 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="password"
+                                <label for="register-password"
                                     class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="password" type="password"
+                                    <input id="register-password" type="password"
                                         class="form-control @error('password') is-invalid @enderror" name="password"
                                         required autocomplete="new-password">
 
@@ -66,7 +65,7 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="password-confirm"
+                                <label for="register-password-confirm"
                                     class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
 
                                 <div class="col-md-6">
@@ -87,7 +86,6 @@
 </div>
 
 @push('scripts')
-<script src="{{ asset('AuthAjax.js') }}"></script>
 <script>
     var AR = new AuthAjax({
         form:'registerForm',

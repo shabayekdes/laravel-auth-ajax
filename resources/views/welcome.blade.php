@@ -87,7 +87,7 @@
                 Login
             </button>
             <!-- Modal -->
-            {{-- @include('modal.login') --}}
+            @include('modal.login')
 
             @if (Route::has('register'))
             {{-- <a href="{{ route('register') }}"></a> --}}
@@ -112,6 +112,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('AuthAjax.js') }}"></script>
 
     @stack('scripts')
 
