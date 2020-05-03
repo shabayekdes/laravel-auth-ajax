@@ -86,6 +86,29 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./node_modules/@fdaciuk/ajax/dist/ajax.min.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/@fdaciuk/ajax/dist/ajax.min.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**!
+ * ajax - v3.0.4
+ * Ajax module in Vanilla JS
+ * https://github.com/fdaciuk/ajax
+
+ * Thu Oct 25 2018 15:30:50 GMT-0300 (-03)
+ * MIT (c) Fernando Daciuk
+*/
+!function(e,t){"use strict"; true?!(__WEBPACK_AMD_DEFINE_FACTORY__ = (t),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.call(exports, __webpack_require__, exports, module)) :
+				__WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)):undefined}(this,function(){"use strict";function e(e){var r=["get","post","put","delete"];return e=e||{},e.baseUrl=e.baseUrl||"",e.method&&e.url?n(e.method,e.baseUrl+e.url,t(e.data),e):r.reduce(function(r,o){return r[o]=function(r,u){return n(o,e.baseUrl+r,t(u),e)},r},{})}function t(e){return e||null}function n(e,t,n,u){var c=["then","catch","always"],i=c.reduce(function(e,t){return e[t]=function(n){return e[t]=n,e},e},{}),f=new XMLHttpRequest,p=r(t,n,e);return f.open(e,p,!0),f.withCredentials=u.hasOwnProperty("withCredentials"),o(f,u.headers,n),f.addEventListener("readystatechange",a(i,f),!1),f.send(s(n)?JSON.stringify(n):n),i.abort=function(){return f.abort()},i}function r(e,t,n){if("get"!==n.toLowerCase()||!t)return e;var r=i(t),o=e.indexOf("?")>-1?"&":"?";return e+o+r}function o(e,t,n){t=t||{},u(t)||(t["Content-Type"]=s(n)?"application/json":"application/x-www-form-urlencoded"),Object.keys(t).forEach(function(n){t[n]&&e.setRequestHeader(n,t[n])})}function u(e){return Object.keys(e).some(function(e){return"content-type"===e.toLowerCase()})}function a(e,t){return function n(){t.readyState===t.DONE&&(t.removeEventListener("readystatechange",n,!1),e.always.apply(e,c(t)),t.status>=200&&t.status<300?e.then.apply(e,c(t)):e["catch"].apply(e,c(t)))}}function c(e){var t;try{t=JSON.parse(e.responseText)}catch(n){t=e.responseText}return[t,e]}function i(e){return s(e)?f(e):e}function s(e){return"[object Object]"===Object.prototype.toString.call(e)}function f(e,t){return Object.keys(e).map(function(n){if(e.hasOwnProperty(n)&&void 0!==e[n]){var r=e[n];return n=t?t+"["+n+"]":n,null!==r&&"object"==typeof r?f(r,n):p(n)+"="+p(r)}}).filter(Boolean).join("&")}function p(e){return encodeURIComponent(e)}return e});
+
+/***/ }),
+
 /***/ "./node_modules/axios/index.js":
 /*!*************************************!*\
   !*** ./node_modules/axios/index.js ***!
@@ -37328,6 +37351,8 @@ module.exports = function(module) {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+window.ajax = __webpack_require__(/*! @fdaciuk/ajax */ "./node_modules/@fdaciuk/ajax/dist/ajax.min.js");
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -37393,8 +37418,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\laragon\www\laravel-login-ajax\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\laragon\www\laravel-login-ajax\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\laragon\www\laravel-auth-ajax\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\laragon\www\laravel-auth-ajax\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

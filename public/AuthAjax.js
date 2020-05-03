@@ -18,17 +18,32 @@ let AuthAjax = (function(){
         ['_token', 'required']
     ];
 
+    AuthAjax.prototype.checkAfterDone = function() {
+        return this.succUrl === undefined ? this.done : this.succUrl;
+    };
+
     AuthAjax.prototype.userRegister = function (thisClass) {
         this.addEvent(this.formId, 'submit', function () {
             let info = thisClass.GetInfo();
             if (info !== false) {
-                console.log('info name => ' + info.name)
-                console.log('info email => ' + info.email)
+                thisClass.sendRequest(info, thisClass);
             } else {
                 console.log("Fill All Inputs");
             }
         });
     };
+
+    AuthAjax.prototype.sendRequest = function(info, thisClass) {
+            let url = this.getUrl();
+            window.ajax()
+                .post(url, info)
+                .then(function(response) {
+                    console.log(response)
+                    if (response == true) {
+                        location.reload();
+                    }
+                });
+        };
 
     AuthAjax.prototype.GetInfo = function () {
         var object = {};
